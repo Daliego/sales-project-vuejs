@@ -1,25 +1,17 @@
 <template>
-  <!-- <header class="teste">essa daqui cai ser red</header> -->
-  <!-- <component :is="$route.meta.layout || 'div'"> -->
-  <!-- <router-view /> -->
-  <!-- </component> -->
-  <div class="fullSpace">
-    you are in the background layout page
-
-    <div>
-      <slot />
-    </div>
+  <div class="w-full h-full gradient">
+    <slot />
   </div>
 </template>
 
-<script>
-export default {
-  name: 'BackgroundLayout'
-}
-</script>
+<!-- <script> -->
+// export default {
+//   name: 'BackgroundLayout'
+// }
+<!-- </script> -->
 
 <style scoped>
-
-
-
+.gradient {
+  background: linear-gradient(#606c88, #3f4c6b);
+}
 </style>
