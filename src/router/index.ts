@@ -1,32 +1,52 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import HomePage from '@/views/HomePage.vue'
 import BackgroundLayout from '@/layouts/BackgroundLayout.vue'
+import MainLayout from '@/layouts/MainLayout.vue'
+import UnitSelection from '@/views/UnitSelection.vue'
+import Home from '@/views/Home.vue'
+import AboutView from '@/views/AboutView.vue'
+import ProductDetails from '@/components/home/ProductDetails.vue'
 
-import { loadLayoutMiddleware } from './middleware/loadLayoutMiddleware'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/home',
-      // name: 'homePage',
+      name: 'Unit Selection',
+      props: true,
       meta: {
         layout: BackgroundLayout
       },
-      component: () => import("../views/HomePage.vue"),
+      component: UnitSelection
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      path: '/home/:slug/',
+      name: 'Home',
+      // meta: {
+      //   layout: MainLayout
+      // },
+      component: MainLayout,
+      props: true,
+      children: [
+        // { path: ':product', component: AboutView }
+        { path: '', component: Home },
+        { path: 'shopping-cart', component: AboutView },
+        { path: 'account', component: AboutView },
+        { path: ':_slug', component: ProductDetails }
+      ]
+    },
+    {
+      path: '/shopping-cart/:slug',
+      meta: {
+        layout: MainLayout
+      },
+      component: AboutView
+    },
+    {
+      path: '/account/:slug',
+      meta: {
+        layout: MainLayout
+      },
+      component: AboutView
     }
   ]
 })
