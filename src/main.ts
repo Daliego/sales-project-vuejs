@@ -1,11 +1,12 @@
 import './assets/main.css'
+import './tailwind.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
 import App from './App.vue'
 import router from './router'
-import hljs from 'highlight.js';
+import hljs from 'highlight.js'; 
 
 const app = createApp(App)
 
@@ -16,6 +17,7 @@ app.use(PrimeVue, {
     present: Aura
   }
 })
+
 app.use(router)
 
 app.mount('#app')

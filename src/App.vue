@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
@@ -14,12 +14,6 @@ import { RouterLink, RouterView } from 'vue-router'
 .fullSpace {
   width: 100vw;
   height: 100vh;
-  background-color: red;
-}
-
-#app {
-  padding: 0;
-  margin: 0;
 }
 </style>
 
