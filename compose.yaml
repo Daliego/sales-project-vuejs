@@ -1,0 +1,15 @@
+# services:
+#   web:
+#     build:
+#       context: ../sales-project-vuejs
+#     ports:
+#       - 5173:5173
+
+version: '3'
+services:
+  vue-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
